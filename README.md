@@ -1,4 +1,4 @@
-# 📘 IIT Roorkee Thesis LaTeX Template
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/02132a04-6531-4656-8dec-01799cb1e52e" /># 📘 IIT Roorkee Thesis LaTeX Template
 
 An **unofficial LaTeX template** for preparing **PhD Thesis** at the **Indian Institute of Technology Roorkee (IIT Roorkee)**.
 
@@ -84,7 +84,8 @@ This template is designed to be **Overleaf-compatible**, modular, and easy to cu
 2. Open **Overleaf**
 3. Click **New Project → Upload Project**
 4. Upload all files
-5. Start editing as per your need.
+5. Ensure to change the compiler to **XeLaTeX**. Goto setting -> Complier -> XeLaTex
+6. Start editing as per your need.
 
 ---
 
