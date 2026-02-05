@@ -1,0 +1,192 @@
+\documentclass[PhD]{iitrdiss}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref} % hyperlinks for references.
+\usepackage{amsmath}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage[numbers]{natbib}
+
+\usepackage{algorithmic}  %============= Added by shwetank for algorithm 
+\usepackage{algorithm} %============= Added by shwetank for algorithm 
+
+\usepackage{polyglossia}
+
+\setmainlanguage{english}
+\setotherlanguages{hindi}
+
+\newfontfamily\devanagarifont[Script=Devanagari]{Noto Serif Devanagari}
+
+\addto\captionsenglish{\renewcommand{\bibname}{REFERENCES}}
+
+\addto\captionsenglish{\renewcommand{\contentsname}{TABLE OF CONTENT}}
+
+\addto\captionsenglish{\renewcommand{\listfigurename}{LIST OF FIGURES}}
+
+\addto\captionsenglish{\renewcommand{\listtablename}{LIST OF TABLES}}
+
+
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Fortran,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+\usepackage{longtable}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{comment}
+
+
+\usepackage{etoolbox} % <--- added
+\AtBeginEnvironment{enumerate}{\linespread{1.5}\selectfont}% <--- added
+\AtBeginEnvironment{itemize}{\linespread{1.5}\selectfont}% <--- added
+
+\usepackage{enumitem}
+\usepackage{datetime}
+\newdateformat{monthyeardate}{%
+  \monthname[\THEMONTH], \THEYEAR}
+
+
+\usepackage{sectsty}
+\sectionfont{\fontsize{12}{15}\selectfont}
+\subsectionfont{\fontsize{12}{15}\selectfont}
+\usepackage{titlesec}
+
+\titleformat{\chapter}[display]{\bfseries\centering}{\Large Chapter \thechapter}{1em}{\Large}
+\titlespacing*{\chapter}{0pt}{0pt}{0pt}  % ===== enabled by shwetank =====
+\titlespacing{\section}{0pt}{1.5em}{0.5em} % ===== added by shwetank =====
+\titlespacing{\subsection}{0pt}{1.5em}{0.5em} % ===== added by shwetank =====
+
+\usepackage{caption}
+\captionsetup[table]{font={stretch=1.2}}     %% change 1.2 as you like
+\captionsetup[figure]{font={stretch=1.2}}
+
+
+\usepackage{fancyhdr}
+\linespread{2} 
+ 
+
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+
+\fancyhf{}
+
+\rhead{\fancyplain{}{\thepage}} % predefined ()
+\lhead{\fancyplain{}{\rightmark}} % 1. sectionname, 1.1 subsection name etc
+%\cfoot{\textcopyright \text{ } \the\year, \emph{Indian Institute of Technology Roorkee}}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\usepackage{subfiles}
+
+
+%==== Added by shwetank =======
+\usepackage{caption}
+\captionsetup[figure]{font=footnotesize}  %small
+% ======================
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title page
+
+\title{PROVIDE YOUR RESEARCH TITLE HERE WHICH IS SUITABLE FOR YOUR WORK}
+
+\author{YOUR NAME}
+\entrynumber{18914028}
+\department{ELECTRICAL ENGINEERING}
+\monthDefined{JANUARY}
+\newcommand{\yearDefined}{2026}
+
+%\nocite{*}
+{\linespread{1}\selectfont
+\maketitle
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Non-Content pages
+\input{nonindex/copyright}
+\begin{spacing}{1.5}
+    \input{nonindex/certificate}% Certificate
+    \input{nonindex/acknowledgements}% Acknowledgements
+    \input{nonindex/abstract}
+    \input{nonindex/abstract_hindi}
+\end{spacing}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Table of contents, List of figures, tables, and symbols.
+\begin{singlespace}
+\tableofcontents
+\thispagestyle{empty}
+
+\listoffigures
+\addcontentsline{toc}{chapter}{LIST OF FIGURES}
+\listoftables
+\addcontentsline{toc}{chapter}{LIST OF TABLES}
+
+\end{singlespace}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{nonindex/abrv}% Abbreviations
+\input{nonindex/notations}% Notations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagebreak
+\clearpage
+
+% The main text will follow from this point so set the page numbering
+% to arabic from here on.
+\pagenumbering{arabic}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% All Chapters
+\begin{spacing}{1.5}
+    \include{all_chapters}
+\end{spacing}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bibliography.
+
+\begin{singlespace}
+
+\bibliographystyle{IEEEtran}
+\bibliography{ref}
+\addcontentsline{toc}{chapter}{REFERENCES}
+
+\end{singlespace}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% List of papers
+
+\begin{singlespace}
+
+\input{chapters/papers/papers}
+
+\end{singlespace}
+
+\end{document}
+
+
+
+
+
