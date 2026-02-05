@@ -1,0 +1,76 @@
+\vspace{-5mm}
+\section{Content Heading}
+\vspace{-3mm}
+To regulate the DC bus voltage at the terminals of DC-DERs, an appropriate converter model is required for controller design. In this thesis, a boost converter is employed to interface the DC DERs with the DC bus. The basic block diagram of the DC DER integrated through a boost converter is shown in Fig.~\ref{fig:dcdc_converter_block}.
+\begin{figure}[b!]
+     \centering
+     \includegraphics[width=0.55\linewidth]{imgs/chapter_2/content_1/fig_1.png}
+     \caption{Basic block diagram for boost converter based DC-DERs}\label{fig:dcdc_converter_block}
+\end{figure}
+
+\vspace{-3mm}
+The modeling of the converter is performed by taking the average of the system during turn-on and turn-off cases of the SW as follows
+\begin{figure*}[h]
+\begin{minipage}{0.48\textwidth}
+    \centering\textbf{During SW is turn-on}
+    \begin{align}
+         V_{in} &= L^{con} \cdot \frac{dI_{L}^{con}}{dt} \label{dcdc_converter_eq2}\\
+        C_{o} \cdot& \frac{dV^{dc}}{dt} = - \frac{V^{dc}}{R_{o}} \label{dcdc_converter_eq3}
+    \end{align}
+    \end{minipage}%
+    \hfill%
+    \begin{minipage}{0.48\textwidth}
+    \centering\textbf{During SW is turn-off}
+    \begin{align}
+        V_{in} - V^{dc} &= L^{con} \cdot \frac{dI_{L}^{con}}{dt} \label{dcdc_converter_eq4} \\
+        C_{o} \cdot \frac{dV^{dc}}{dt} &= I_{L}^{con} - \frac{V^{dc}}{R_{o}} \label{dcdc_converter_eq5}
+    \end{align}
+\end{minipage}
+\end{figure*}
+
+\vspace{-6mm}
+Now using ~\eqref{dcdc_converter_eq2}, ~\eqref{dcdc_converter_eq3}, ~\eqref{dcdc_converter_eq4}, and ~\eqref{dcdc_converter_eq5}, the average model is developed as follows:
+\begin{align}
+    V_{in} - V^{dc} &\left( 1 - D^{con}\right) = L^{con} \frac{dI_{L}^{con}}{dt} \label{dcdc_converter_eq6} \\
+    C_{o} \cdot \frac{dV^{dc}}{dt} &= I_{L}^{con}\cdot \left( 1 - D^{con}\right)  - \frac{V^{dc}}{R_{o}} \label{dcdc_converter_eq7}
+\end{align}
+Taking the small perturbation, the state space model is developed as follows:
+\vspace{-3mm}
+\begin{equation}
+    \label{dcdc_converter_eq8}
+    \begin{bmatrix}
+    \dot{\Delta I_{L}^{con}} \\ 
+    \dot{\Delta V^{dc}}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    0 & \frac{-(1-D^{con})}{L^{con}} \\
+    \frac{1-D^{con}}{C_{o}} & \frac{-1}{C_{o}R_{o}}
+    \end{bmatrix}
+    \begin{bmatrix}
+    \Delta I_{L}^{con} \\ 
+    \Delta V^{dc}
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        \frac{1}{L^{con}} & \frac{V^{dc}}{L^{con}} \\
+        0 & \frac{-I_{L}^{con}}{C_{o}}
+    \end{bmatrix}
+    \begin{bmatrix}
+        \Delta V_{in} \\
+        \Delta D^{con}
+    \end{bmatrix}
+\end{equation}
+\begin{equation}
+    \label{dcdc_converter_eq9}
+    \Delta V^{dc} = 
+    \begin{bmatrix}
+        0 & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        \Delta I_{L}^{con}\\
+        \Delta V^{dc} 
+    \end{bmatrix}
+\end{equation}
+\input{tables/chapter_2/table_1}
+

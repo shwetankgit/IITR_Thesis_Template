@@ -1,0 +1,57 @@
+\section{Content Heading}
+\vspace{-3mm}
+The SPV module operates in a wide range of atmospheric conditions, but the manufacturers provide electrical parameters at only STC in their datasheet \cite{ref126}. The SPV models are classified into three main types. The first is the ISDM as shown in Fig.~\ref{fig:pv_module_circuit}(a), the second one is the SDM as shown in Fig.~\ref{fig:pv_module_circuit}(b), and the third is an SSDM as shown in Fig.~\ref{fig:pv_module_circuit}(c) \cite{ref126}. 
+\begin{figure}[t!]
+     \centering
+     \includegraphics[width=0.7\linewidth]{imgs/chapter_3/content_1/fig_1.png}
+     \caption{Equivalent circuits for SPV: (a) ISDM, (b) SDM, (c) SSDM.}\label{fig:pv_module_circuit}
+\end{figure}
+The basic IV characteristic for SPV module, which has series-connected cells, is expressed as \eqref{solar_eq1} \cite{ref126,ref127,ref162}.
+\begin{equation}
+    \label{solar_eq1}
+    I^{pv} = I^{ph} - I_{ds}^{pv}\left[ \exp{\left( \frac{V^{pv} + R^{pv}_{s}\cdot I^{pv}}{V_{T}\cdot A^{pv}_{d}}\right)} - 1\right] - \frac{V^{pv} + R^{pv}_{s}\cdot I^{pv}}{R^{pv}_{sh}}
+\end{equation}
+Where $V_{T} = N^{pv}_{s}KT/q$. The parameter $A^{pv}_{d}$ usually ranges in between $1\leq A^{pv}_{d} \leq 1.5$ \cite{ref127}. In this thesis, the ISDM is used. ISDM includes simplicity, ease of modeling, and accuracy \cite{ref126}. The model relies on the ISDM is expressed as \eqref{solar_eq2}.
+\vspace{-2mm}
+\begin{equation}
+    \label{solar_eq2}
+    I^{pv} = I^{ph} - I^{pv}_{ds} \left[ \exp{\left(\frac{q\cdot V^{pv}}{N^{pv}_{s}\cdot K\cdot A^{pv}_{d}\cdot T^{pv}}\right)} - 1\right]
+ \end{equation}
+\vspace{-3mm}
+where $I^{ph}$ depends on solar irradiance and temperature as \eqref{solar_eq3} \cite{ref126,ref162}.
+\begin{equation}
+    \label{solar_eq3}
+    I^{ph} = G^{pv}\cdot \left( I^{pv}_{sc} + \alpha^{pv} \cdot \Delta T^{pv}_{STC}\right)
+\end{equation}
+\vspace{-3mm}
+The open circuit voltage of the SPV depends on the temperature as \eqref{solar_eq4} \cite{ref126,ref162}.
+\begin{equation}
+    \label{solar_eq4}
+    V^{pv}_{oc}(T) = V^{pv}_{oc}(T_{0}) - \left| \beta^{pv} \cdot \right| \Delta T^{pv}_{STC}
+\end{equation}
+\vspace{-2mm}
+The diode saturation current is expressed as \eqref{solar_eq5} \cite{ref126}.
+\begin{equation}
+    \label{solar_eq5}
+    I^{pv}_{ds} = \frac{\exp{\left(\frac{\left| \beta^{pv} \right| \cdot \Delta T^{pv}_{STC} \cdot q}{N^{pv}_{s}\cdot K\cdot T\cdot A^{pv}_{d}}\right)}\cdot G^{pv}\cdot \left[I^{pv}_{sc} + \alpha^{pv} \cdot \Delta T^{pv}_{STC} \right]}{\left(G^{pv}\cdot I^{pv}_{sc}/I^{pv}_{rs} + 1\right)^{\frac{T_{0}}{T}} - \exp{\left(\frac{\left| \beta^{pv} \right|\cdot \Delta T^{pv}_{STC}\cdot q}{N^{pv}_{s}\cdot K\cdot T\cdot A^{pv}_{d}}\right)}}
+\end{equation}
+\vspace{-3mm}
+where $I_{pvm}^{rs}$ is the saturation current at STC and defined as \eqref{solar_eq6} \cite{ref126, ref127, ref162, ref128}.
+\begin{equation}
+    \label{solar_eq6}
+    I^{pv}_{rs} = \frac{I^{pv}_{sc}}{\exp{\left( \frac{q\cdot V^{pv}_{oc}(T_{0})}{N^{pv}_{s} \cdot K \cdot A^{pv}_{d} \cdot T_{0}}\right)} -  1}
+\end{equation}
+The I-V and P-V characteristics of the SPV module can be plotted as Fig.~\ref{fig:module_IV} and Fig.~\ref{fig:module_PV} using the manufacturer's datasheet as given in the Table ~\ref{tab:spv_module}. 
+\begin{figure}[t!]
+   \begin{minipage}{0.5\textwidth}
+     \centering
+     \includegraphics[width=\linewidth]{imgs/chapter_3/content_1/fig_2.png}
+     \caption{SPV module I-V characteristics}\label{fig:module_IV}
+   \end{minipage}\hfill
+   \begin{minipage}{0.5\textwidth}
+     \centering
+     \includegraphics[width=\linewidth]{imgs/chapter_3/content_1/fig_3.png}
+     \caption{SPV module P-V characteristics}\label{fig:module_PV}
+   \end{minipage}
+\end{figure}
+\input{tables/chapter_3/table_1}
