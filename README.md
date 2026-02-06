@@ -72,7 +72,7 @@ This template is designed to be **Overleaf-compatible**, modular, and easy to cu
 |   │   ├── table_1.tex # Table of chapter_3
 ├── ref.bib # References in BibTex format
 ├── README.md # Project documentation
-├── sample.pdf # Sample PDF of the synopsis
+├── sample.pdf # Sample PDF of the thesis
 
 ```
 
